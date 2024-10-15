@@ -1,0 +1,44 @@
+{
+    "data_generator": {
+        "mean": 0,
+        "std_dev": 1,
+        "anomaly_freq": 0.05,
+        "anomaly_scale": 3,
+        "seasonal_period": 24,
+        "trend_strength": 0.1,
+        "dimensions": 1
+    },
+    "anomaly_detector": {
+        "window_size": 100,
+        "sequence_length": 20,
+        "anomaly_threshold": 2.5,
+        "lstm_detector": {
+            "input_size": 1,
+            "hidden_size": 64,
+            "num_layers": 2,
+            "output_size": 1
+        },
+        "adaptive_lstm_detector": {
+            "input_size": 1,
+            "hidden_size": 64,
+            "num_layers": 2,
+            "output_size": 1,
+            "learning_rate": 0.001,
+            "patience": 10
+        },
+        "isolation_forest": {
+            "contamination": 0.1
+        }
+    },
+    "visualizer": {
+        "window_size": 1000,
+        "update_interval": 0.1
+    },
+    "update_interval": 0.1,
+    "logging": {
+        "level": "INFO",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "filename": "anomaly_detection.log",
+        "console_output": true
+    }
+}
